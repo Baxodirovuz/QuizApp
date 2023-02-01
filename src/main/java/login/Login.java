@@ -16,6 +16,11 @@ public class Login {
 
     private Data data = Data.getInstance();
     private Service service = Service.getInstance();
+    private static Login login = new Login();
+
+    public static Login getInstance() {
+        return login;
+    }
 
     @SneakyThrows
     public void login() {
