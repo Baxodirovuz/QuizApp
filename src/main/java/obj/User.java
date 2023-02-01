@@ -1,8 +1,6 @@
 package obj;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.ToString;
+import lombok.*;
 import obj.additional.*;
 
 
@@ -11,6 +9,7 @@ import obj.additional.*;
 @ToString
 public class User {
     private int id;
+    private String UUID;
     private String username;
     private String password;
     private Language language;
