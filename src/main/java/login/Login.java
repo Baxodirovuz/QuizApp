@@ -5,6 +5,7 @@ import obj.User;
 import obj.additional.Language;
 import obj.additional.Role;
 import serv.Console;
+import service.Service;
 import temporarily.data.Data;
 
 import java.util.Scanner;
@@ -87,7 +88,7 @@ public class Login {
         data.usersList.add(user);
     }
 
-    public int nextId() {
+    private int nextId() {
         return data.usersList.size() + 1;
     }
 
