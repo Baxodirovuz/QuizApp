@@ -1,4 +1,4 @@
-package obj.additional;
+package domains.additional;
 
 public enum Language {
     ENG,UZ,RU

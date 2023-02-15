@@ -1,10 +1,10 @@
 package login;
 
 import lombok.SneakyThrows;
-import obj.User;
-import obj.additional.Language;
-import obj.additional.Role;
-import serv.Console;
+import domains.User;
+import domains.additional.Language;
+import domains.additional.Role;
+import console.Console;
 import service.Service;
 import temporarily.data.Data;
 

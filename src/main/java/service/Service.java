@@ -1,11 +1,14 @@
 package service;
 
+import dao.UserDAO;
+import domains.additional.Language;
+import domains.additional.UpdateType;
 import login.Login;
 import lombok.SneakyThrows;
-import obj.User;
-import serv.Console;
+import console.Console;
 import service.serviceAdditional.ServiceInterface;
 import temporarily.data.Data;
+
 import java.util.Scanner;
 
 public class Service implements ServiceInterface {
@@ -16,7 +19,7 @@ public class Service implements ServiceInterface {
 
     private static Service service = new Service();
     private Data data = Data.getInstance();
-
+    private UserDAO userDAO = UserDAO.getInstance();
 
     public static Service getInstance() {
         return service;
@@ -66,17 +69,21 @@ public class Service implements ServiceInterface {
 
     @Override
     public boolean changeUsername() {
-
+        String updateUsername = "";
+        userDAO.update(updateUsername, UpdateType.USERNAME);
         return false;
     }
 
     @Override
     public boolean changePassword() {
+        String updatePassword = "";
+        userDAO.update(updatePassword, UpdateType.PASSWORD);
         return false;
     }
 
     @Override
     public boolean changeLanguage() {
+        userDAO.update(Language.RU.toString(), UpdateType.LANGUAGE);
         return false;
     }
 }

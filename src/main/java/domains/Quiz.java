@@ -1,7 +1,7 @@
-package obj;
+package domains;
 
 import lombok.*;
-import obj.additional.*;
+import domains.additional.*;
 
 @ToString
 @Builder

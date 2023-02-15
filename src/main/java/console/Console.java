@@ -1,4 +1,4 @@
-package serv;
+package console;
 
 public class Console {
     public static void print(String message) {

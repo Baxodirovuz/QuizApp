@@ -1,6 +1,6 @@
 package temporarily.data;
 
-import obj.User;
+import domains.User;
 
 import java.util.ArrayList;
 

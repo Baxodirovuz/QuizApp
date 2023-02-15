@@ -23,13 +23,6 @@ public abstract class DAO<T, ID> {
             }
     );
 
-    protected abstract T save(T t);
-
-    protected abstract T get(ID id);
-
-    protected abstract boolean update(T t);
-
-    protected abstract boolean delete(ID id);
 
     protected Connection getConnection() {
         return connectionThreadLocal.get();

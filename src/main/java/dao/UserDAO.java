@@ -1,6 +1,7 @@
 package dao;
 
-import obj.User;
+import domains.User;
+import domains.additional.UpdateType;
 
 public class UserDAO extends DAO<User, Integer> {
 
@@ -18,23 +19,20 @@ public class UserDAO extends DAO<User, Integer> {
     }
 
 
-    @Override
-    protected User save(User user) {
+    public void save(User user) {
+
+    }
+
+    public User get(int userId) {
         return null;
     }
 
-    @Override
-    protected User get(Integer integer) {
-        return null;
-    }
-
-    @Override
-    protected boolean update(User user) {
+    public boolean delete(Integer integer) {
         return false;
     }
 
-    @Override
-    protected boolean delete(Integer integer) {
+    public boolean update(String value, UpdateType type) {
+
         return false;
     }
 }
