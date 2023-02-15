@@ -14,4 +14,14 @@ public class Data {
 
     public ArrayList<User> usersList = new ArrayList<>();
 
+
+    public int getId(String username) {
+        for (User user : data.usersList) {
+            if (user.getUsername().equals(username)) {
+                return user.getId();
+            }
+        }
+        return -1;
+    }
+
 }

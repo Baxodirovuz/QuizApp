@@ -48,7 +48,7 @@ public class Login {
         for (User user : data.usersList) {
             if (user.getUsername().equalsIgnoreCase(username) &&
                     user.getPassword().equals(password))
-                service.mainService(username);
+                service.mainService(data.getId(username));
             else
                 Console.printErr("Entered valid invalid");
             Thread.sleep(3000);
