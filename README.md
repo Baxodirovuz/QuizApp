@@ -1,4 +1,4 @@
-### QuizApp
+### Connection
 
 ```Java
  private final ThreadLocal<Connection> connectionThreadLocal = ThreadLocal.withInitial(
@@ -15,3 +15,21 @@
                 }
             }
     );
+```
+# Get connection
+```Java
+protected Connection getConnection() {
+        return connectionThreadLocal.get();
+    }
+```
+
+
+## Maven driver
+
+```Maven
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.3</version>
+        </dependency>
+```
