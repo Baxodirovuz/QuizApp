@@ -69,21 +69,40 @@ public class Service implements ServiceInterface {
 
     @Override
     public boolean changeUsername() {
-        String updateUsername = "";
-        userDAO.update(updateUsername, UpdateType.USERNAME);
-        return false;
+        Console.print("Enter new name: ");
+        String updateUsername = new Scanner(System.in).nextLine();
+        if (updateUsername.isBlank()) {
+            userDAO.update(updateUsername, UpdateType.USERNAME);
+        }
+        return true;
     }
+
 
     @Override
     public boolean changePassword() {
-        String updatePassword = "";
-        userDAO.update(updatePassword, UpdateType.PASSWORD);
-        return false;
+        Console.print("Enter new name: ");
+        String updatePassword = new Scanner(System.in).nextLine();
+        if (updatePassword.isBlank()) {
+            userDAO.update(updatePassword, UpdateType.PASSWORD);
+        }
+        return true;
     }
 
     @Override
     public boolean changeLanguage() {
-        userDAO.update(Language.RU.toString(), UpdateType.LANGUAGE);
+        Language language = null;
+        Console.println(" <1> " + Language.ENG);
+        Console.println(" <2> " + Language.RU);
+        Console.println(" <3> " + Language.UZ);
+        Console.print("Enter option: ");
+        switch (new Scanner(System.in).nextInt()) {
+            case 1 -> language = Language.ENG;
+            case 2 -> language = Language.RU;
+            case 3 -> language = Language.UZ;
+            default -> {
+            }
+        }
+        userDAO.update(language.toString(), UpdateType.LANGUAGE);
         return false;
     }
 }
