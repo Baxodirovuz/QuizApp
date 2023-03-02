@@ -8,14 +8,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public abstract class DAO<T, ID> {
-    private final ThreadLocal<Connection> connectionThreadLocal = ThreadLocal.withInitial(
+    private static final ThreadLocal<Connection> connectionThreadLocal = ThreadLocal.withInitial(
             () -> {
                 try {
                     DriverManager.registerDriver(new Driver());
                     return DriverManager.getConnection(
-                            "jdbc:postgresql://localhost:5432/jakartaee?currentSchema=library1",
+                            "jdbc:postgresql://localhost:5432/quiz_app?currentSchema=structure",
                             "postgres",
-                            "123"
+                            "root123"
                     );
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
@@ -24,7 +24,7 @@ public abstract class DAO<T, ID> {
     );
 
 
-    protected Connection getConnection() {
+    protected static Connection getConnection() {
         return connectionThreadLocal.get();
     }
 }

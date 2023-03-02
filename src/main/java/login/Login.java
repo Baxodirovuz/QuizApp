@@ -1,5 +1,6 @@
 package login;
 
+import dao.UserDAO;
 import lombok.SneakyThrows;
 import domains.User;
 import domains.additional.Language;
@@ -18,6 +19,7 @@ public class Login {
     private Data data = Data.getInstance();
     private Service service = Service.getInstance();
     private static Login login = new Login();
+    private UserDAO userDAO = UserDAO.getInstance();
 
     public static Login getInstance() {
         return login;
@@ -45,14 +47,15 @@ public class Login {
         String username = new Scanner(in).nextLine();
         Console.print("Enter password: ");
         String password = new Scanner(in).nextLine();
-        for (User user : data.usersList) {
-            if (user.getUsername().equalsIgnoreCase(username) &&
-                    user.getPassword().equals(password))
-                service.mainService(data.getId(username));
-            else
+        for (User user : userDAO.findAll()) {
+            if (user.getUsername().equals(username)
+                    && user.getPassword().equals(password)) {
+                service.mainService(user.getId());
+            } else {
                 Console.printErr("Entered valid invalid");
-            Thread.sleep(3000);
-            login();
+                Thread.sleep(3000);
+                login();
+            }
         }
     }
 
@@ -62,9 +65,9 @@ public class Login {
         String username = new Scanner(System.in).nextLine();
         Console.print("Enter password: ");
         String password = new Scanner(System.in).nextLine();
-        Console.println("<1> " + Language.ENG.toString());
-        Console.println("<2> " + Language.RU.toString());
-        Console.println("<3> " + Language.UZ.toString());
+        Console.println("<1> " + Language.ENG);
+        Console.println("<2> " + Language.RU);
+        Console.println("<3> " + Language.UZ);
         Language language = null;
         Console.print("Enter language: ");
         switch (new Scanner(System.in).nextInt()) {
